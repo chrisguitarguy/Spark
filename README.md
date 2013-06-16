@@ -165,5 +165,10 @@ todo
 
 todo
 
-        }
-    }
+## Running the Tests
+
+Spark tests require PHPUnit and WordPress' unit test suite (learn about it
+[here](http://make.wordpress.org/core/handbook/automated-testing/).
+
+To use WordPress' unit test suite, you must install PHPUnit via PEAR, or put
+PHPUnit someplace that gets registerd with your include path.
