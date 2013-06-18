@@ -8,7 +8,7 @@
  * @license     http://opensource.org/licenses/GPL-2.0 GPL-2.0+
  */
 
-namespace Spark\Test;
+namespace Spark\Test\Type;
 
 class TypeBaseTest extends \WP_UnitTestCase
 {
