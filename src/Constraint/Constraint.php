@@ -130,7 +130,7 @@ abstract class Constraint implements ConstraintInterface
 
         $replacements = array();
         foreach ($ctx as $k => $v) {
-            $replacements["{$k}"] = $v;
+            $replacements['{' . $k . '}'] = $v;
         }
 
         return strtr($errmsg, $replacements);
