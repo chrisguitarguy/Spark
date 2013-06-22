@@ -65,7 +65,7 @@ class Spark extends \Pimple
     public static function get($name)
     {
         if (empty(static::$registry[$name])) {
-            static::$registry[$name] = new static();
+            static::$registry[$name] = new static(array('prefix' => $name));
         }
 
         return static::$registry[$name];
