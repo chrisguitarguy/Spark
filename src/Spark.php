@@ -52,6 +52,7 @@ class Spark extends \Pimple
         });
 
         $this->registerTypes();
+        $this->registerMeta();
     }
 
     /**
@@ -97,6 +98,36 @@ class Spark extends \Pimple
             $m = $doings['types.manager_factory'](__NAMESPACE__ . '\\Type\\Taxonomy');
             add_action('init', array($m, 'register'), 99);
             return $m;
+        });
+    }
+
+    /**
+     * Register all the fun meta stuff.
+     *
+     * @since   0.1
+     * @access  protected
+     * @return  void
+     */
+    protected function registerMeta()
+    {
+        $spark = $this;
+
+        $this['meta.class'] = 'Spark\\Meta\\Meta';
+
+        $this['meta.factory'] = $this->protect(function ($type) use ($spark) {
+            return new $spark['meta.class']($type, $spark['prefix']);
+        });
+
+        $this['meta.post'] = $this->share(function ($spark) {
+            return $spark['meta.factory']('post');
+        });
+
+        $this['meta.user'] = $this->share(function ($spark) {
+            return $spark['meta.factory']('user');
+        });
+
+        $this['meta.comment'] = $this->share(function ($spark) {
+            return $spark['meta.factory']('comment');
         });
     }
 }

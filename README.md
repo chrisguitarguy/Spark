@@ -145,6 +145,24 @@ Type type manager will take care of hook into `init` and registering your types
 for you. Which means, you just need to make sure to add your builders or types
 at some point before `init` (like the example above).
 
+## Meta
+
+Spark provides a nice wrapper around the metadata API that automatically
+prefixes things for you.
+
+    $spark = spark('my_spark');
+
+    // equivalent to get_post_meta($some_post_id, '_my_spark_a_key', true)
+    $val = $spark['meta.post']->get($some_post_id, 'a_key');
+
+    // update_meta_meta($some_post_id, '_my_spark_a_key', 'a value');
+    $spark['meta.post']->save($some_post_id, 'a_key', 'a value');
+
+    // delete_post_meta($some_post_id, '_my_spark_a_key');
+    $spark['meta.post']->delete($some_post_id, 'a_key');
+
+You can use `meta.post`, `meta.user`, and `meta.comment` all in the same way.
+
 ## Forms
 
 todo
