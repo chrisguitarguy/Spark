@@ -11,7 +11,7 @@
 namespace Spark\Form\View;
 
 /**
- * Views do the integration work with WordPress.
+ * Views do the integration work with WordPress or plain HTML.
  *
  * @since   0.1
  * @author  Christopher Davis <http://christopherdavis.me>
