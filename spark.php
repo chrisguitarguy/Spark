@@ -53,3 +53,4 @@ require_once SPARK_ROOT . '/src/Spark.php';
 require_once SPARK_ROOT . '/src/core.php';
 
 add_action('plugins_loaded', 'spark_load', 5);
+add_action('after_setup_theme', 'spark_load_theme', 5);

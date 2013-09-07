@@ -25,6 +25,19 @@ function spark_load()
 }
 
 /**
+ * Hooked into `after_setup_theme` to give themes aware of wether or not
+ * spark exists.
+ *
+ * @since   0.1
+ * @access  do_action
+ * @return  void
+ */
+function spark_load_theme()
+{
+    do_action('spark_loaded_theme', spark('__self'));
+}
+
+/**
  * A little syntatic sugar around Spark\Spark::get
  *
  * @since   0.1
