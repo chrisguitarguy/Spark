@@ -10,7 +10,6 @@ require_once $wp_test_dir . '/includes/bootstrap.php';
 
 require_once __DIR__ . '/../src/Autoloader.php';
 require_once __DIR__ . '/../lib/Pimple.php';
-require_once __DIR__ . '/../src/Spark.php';
 
 $loader = new \Spark\Autoloader();
 $loader
