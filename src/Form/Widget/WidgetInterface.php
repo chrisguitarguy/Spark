@@ -138,11 +138,11 @@ interface WidgetInterface
      * @since   0.1
      * @access  public
      * @param   string $name
-     * @param   string $url
+     * @param   array $args
      * @return  $this
      * @chainable
      */
-    public function addImage($name, $url);
+    public function addImage($name, array $args=array());
 
     /**
      * Remove an image.
