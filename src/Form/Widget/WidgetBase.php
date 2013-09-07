@@ -14,7 +14,7 @@ namespace Spark\Form\Widget;
  * Base class for widgets. Takes care of most of the getter/setter crap
  *
  * @since   0.1
- * @author  Christopher Davis <chris@pmg.co>
+ * @author  Christopher Davis <http://christopherdavis.me>
  */
 abstract class WidgetBase implements WidgetInterface
 {
@@ -169,5 +169,61 @@ abstract class WidgetBase implements WidgetInterface
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Get a "whitelist" of allowed attributes. Used as a helper to render
+     * attributes in WidgetInterface::render
+     *
+     *
+     * @since   0.1
+     * @access  protected
+     * @return  string[]
+     */
+    protected function getAttributeWhitelist()
+    {
+        return array(
+            'class',
+            'id',
+            'name',
+            'disabled',
+            'required',
+            'placeholder',
+        );
+    }
+
+    /**
+     * Render the attributes ($attr) based on a whitelist.
+     *
+     * @since   0.1
+     * @access  protected
+     * @param   array $attr
+     * @return  string
+     */
+    protected function renderAttributes(array $attr)
+    {
+        $to_render = array();
+        foreach ($this->getAttributeWhitelist() as $key) {
+            if (!array_key_exists($key, $attr)) {
+                continue;
+            }
+
+            $to_render[] = sprintf('%s="%s"', $key, $this->escape($attr[$key] ?: $key));
+        }
+
+        return implode(' ', $to_render);
+    }
+
+    /**
+     * Escape an attribute value. Thin wrapper around esc_attr for now.
+     *
+     * @since   0.1
+     * @access  protected
+     * @param   string $value
+     * @return  string
+     */
+    protected function escape($value)
+    {
+        return esc_attr($value);
     }
 }

@@ -30,7 +30,7 @@ interface WidgetInterface
      * @since   0.1
      * @access  public
      * @param   array $attr The attributes of the field. Eg. class, value, id, etc
-     * @return  void
+     * @return  string The rendered form field
      */
     public function render(array $attr);
 
