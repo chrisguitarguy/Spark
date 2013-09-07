@@ -82,8 +82,9 @@ class Autoloader
         foreach ($possibilities as $namespace => $dir) {
             $_cls = $cls;
             if ($this->hasStripped($namespace)) {
-                $count = 1;
-                $_cls = $this->strip(str_replace($namespace, '', $cls, $count));
+                $_cls = $this->strip(
+                    substr_replace($_cls, '', 0, strlen($namespace))
+                );
             }
 
             $path = $this->pathJoin($dir, $this->replace($_cls) . '.php');
