@@ -8,7 +8,7 @@
  * @license     http://opensource.org/licenses/GPL-2.0 GPL-2.0+
  */
 
-namespace Spark\Form\Field;
+namespace Spark\Form\Widget;
 
 /**
  * Widgets take care of spitting out the HTML for a form field and keeping
