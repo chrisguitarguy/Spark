@@ -10,8 +10,6 @@
 
 namespace Spark\Form;
 
-use Spark\Form\Field\FieldInterface;
-
 /**
  * Forms are a combination of fields + views.
  *
@@ -32,13 +30,11 @@ interface FormInterface extends \ArrayAccess
      *
      * @since   0.1
      * @access  public
-     * @param   string|Spark\Form\Field\FieldInterface $field
-     * @param   string $field_type Optional -- defualt: text
-     * @param   array $args Optional.
+     * @param   Spark\Form\Field\FieldInterface $field
      * @return  $this
      * @chainable
      */
-    public function add($field, $field_type='text', array $args=array());
+    public function add(FieldInterface $field);
 
     /**
      * Remove a field.
