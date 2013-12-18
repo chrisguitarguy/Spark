@@ -148,11 +148,6 @@ abstract class TypeBase implements TypeInterface
     /**
      * {@inheritdoc}
      */
-    abstract public function generateLabels();
-
-    /**
-     * {@inheritdoc}
-     */
     public function setSingularName($singular)
     {
         $this->singular_name = $singular;
@@ -183,11 +178,6 @@ abstract class TypeBase implements TypeInterface
     {
         return $this->plural_name;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    abstract public function register();
 
     /** ArrayAccess *********/
 
